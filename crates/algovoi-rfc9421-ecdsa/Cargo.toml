@@ -1,0 +1,22 @@
+[package]
+name = "algovoi-rfc9421-ecdsa"
+description = "ECDSA (P-256/P-384) add-on for the AlgoVoi RFC 9421 verifier. A pure add-on that depends on the core verifier; the core does not depend on it."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+algovoi-rfc9421-verifier = { path = "../algovoi-rfc9421-verifier", version = "0.1.0" }
+thiserror = { workspace = true }
+p256 = { workspace = true }
+p384 = { workspace = true }
+
+[dev-dependencies]
+p256 = { workspace = true, features = ["ecdsa", "arithmetic"] }
+p384 = { workspace = true, features = ["ecdsa", "arithmetic"] }
+rand_core = { version = "0.6", features = ["getrandom"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }

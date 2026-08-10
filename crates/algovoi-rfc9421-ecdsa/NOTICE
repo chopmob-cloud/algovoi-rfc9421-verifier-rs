@@ -1,0 +1,14 @@
+algovoi-rfc9421-ecdsa (Rust)
+Copyright 2026 Christopher Hopley / AlgoVoi (chopmob-cloud)
+
+This product includes software developed by AlgoVoi.
+Licensed under the Apache License, Version 2.0.
+
+ECDSA (P-256 / P-384) provider add-on for the AlgoVoi RFC 9421 verifier (Rust).
+This is a PURE add-on: it depends on the core crate algovoi-rfc9421-verifier and
+adds only the RFC 9421 ECDSA suites ecdsa-p256-sha256 and ecdsa-p384-sha384. The
+core crate does not depend on this crate. Elliptic-curve operations use the
+p256 and p384 crates.
+
+When redistributing this work or derivative works, retain this NOTICE per
+Apache License, Version 2.0, Section 4(d).

@@ -1,0 +1,21 @@
+[package]
+name = "algovoi-rfc9421-verifier"
+description = "AlgoVoi RFC 9421 verifier core: Ed25519, trust-boundary key gate, signing base, parsing, RFC 9530 content-digest, and freshness."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+thiserror = { workspace = true }
+base64 = { workspace = true }
+regex = { workspace = true }
+num-bigint = { workspace = true }
+sha2 = { workspace = true }
+ed25519-dalek = { workspace = true }
+
+[dev-dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }

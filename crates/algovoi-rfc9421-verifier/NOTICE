@@ -1,0 +1,15 @@
+algovoi-rfc9421-verifier (Rust)
+Copyright 2026 Christopher Hopley / AlgoVoi (chopmob-cloud)
+
+This product is part of the AlgoVoi agentic-payments substrate, authored by
+Christopher Hopley (AlgoVoi) and licensed under the Apache License, Version 2.0.
+
+This is the Rust port of the AlgoVoi RFC 9421 verifier core (Ed25519, trust
+boundary public-key gate, RFC 9421 Section 2.5 signing base, Signature-Input /
+Signature parsing, RFC 9530 Content-Digest, and signature freshness). It is a
+faithful reimplementation of the reference Python and TypeScript
+algovoi-rfc9421-verifier packages and reproduces the frozen reference vectors
+byte for byte.
+
+When redistributing this work or derivative works, retain this NOTICE per
+Apache License, Version 2.0, Section 4(d).
