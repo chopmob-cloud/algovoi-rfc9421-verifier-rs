@@ -6,6 +6,8 @@ edition.workspace = true
 license.workspace = true
 authors.workspace = true
 rust-version.workspace = true
+repository.workspace = true
+homepage.workspace = true
 
 [dependencies]
 algovoi-rfc9421-verifier = { path = "../algovoi-rfc9421-verifier", version = "0.1.0" }

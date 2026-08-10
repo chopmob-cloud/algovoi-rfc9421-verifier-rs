@@ -11,6 +11,8 @@ edition = "2021"
 license = "Apache-2.0"
 authors = ["AlgoVoi <chopmob@gmail.com>"]
 rust-version = "1.74"
+repository = "https://github.com/chopmob-cloud/algovoi-rfc9421-verifier-rs"
+homepage = "https://github.com/chopmob-cloud/algovoi-rfc9421-verifier-rs"
 
 [workspace.dependencies]
 thiserror = "1"
