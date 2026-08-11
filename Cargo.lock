@@ -16,6 +16,7 @@ name = "algovoi-rfc9421-ecdsa"
 version = "0.1.0"
 dependencies = [
  "algovoi-rfc9421-verifier",
+ "base64",
  "hex",
  "p256",
  "p384",
