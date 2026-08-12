@@ -1,0 +1,37 @@
+# Gate every change to this verifier on the shared RFC 9421 conformance corpus.
+#
+# Runs the workspace's own unit tests plus the rfc9421_negative cross-language
+# battery (crates/algovoi-rfc9421-ecdsa/tests/negative_v1.rs) against the signed
+# v3 corpus checked out from the conformance repo, so this repo's PRs are gated
+# on byte-for-byte parity with the frozen oracle, including the rsa_verify
+# section. Without the corpus the negative test no-ops on an empty section;
+# pointing ALGOVOI_NEGATIVE_V1 at v3 makes it run all seven sections
+# (signing_base, the two parse gates, keygate, ed25519, ecdsa, rsa) and fail
+# closed on any divergence.
+name: ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: cargo test + rfc9421_negative v3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # the signed conformance corpus (the shared oracle) for the negative battery
+      - uses: actions/checkout@v4
+        with:
+          repository: chopmob-cloud/algovoi-rfc9421-conformance
+          path: _conformance
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: cargo test (workspace + rfc9421_negative v3, incl. rsa_verify)
+        env:
+          ALGOVOI_NEGATIVE_V1: ${{ github.workspace }}/_conformance/corpus/rfc9421_negative_v3/rfc9421_negative_v3.json
+        run: cargo test --workspace -- --nocapture
