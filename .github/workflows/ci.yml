@@ -31,7 +31,13 @@ jobs:
 
       - uses: dtolnay/rust-toolchain@stable
 
-      - name: cargo test (workspace + rfc9421_negative v3, incl. rsa_verify)
+      # Scoped to the negative battery target only -- the exact target the
+      # conformance consensus job runs for the Rust column. The crate's other
+      # test target (shared_vectors.rs) include_str!s reference vectors from the
+      # separate algovoi-rfc9421-verifier-multilang repo, so compiling it here
+      # would require that third checkout; it is gated elsewhere. --test
+      # negative_v1 builds only this target, so that dependency is never touched.
+      - name: cargo test (rfc9421_negative v3, all seven sections incl. rsa_verify)
         env:
           ALGOVOI_NEGATIVE_V1: ${{ github.workspace }}/_conformance/corpus/rfc9421_negative_v3/rfc9421_negative_v3.json
-        run: cargo test --workspace -- --nocapture
+        run: cargo test -p algovoi-rfc9421-ecdsa --test negative_v1 -- --nocapture
