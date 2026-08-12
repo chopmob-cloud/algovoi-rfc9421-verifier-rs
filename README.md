@@ -62,12 +62,12 @@ cargo build --workspace
 cargo test --workspace
 ```
 
-The `shared_vectors` test target `include_str!`s
-`../../../../algovoi-rfc9421-verifier-multilang/vectors/reference_ecdsa_v0.json`
-at compile time, so `cargo test --workspace` requires the
-`algovoi-rfc9421-verifier-multilang` repo checked out as a sibling directory. To
-build and run only the conformance battery (which has no such dependency), scope
-to its target as shown below.
+The `shared_vectors` test reads reference vectors from the
+[algovoi-rfc9421-verifier-multilang](https://github.com/chopmob-cloud/algovoi-rfc9421-verifier-multilang)
+repo at runtime, defaulting to a checkout alongside this one; override with
+`ALGOVOI_REFERENCE_ECDSA_VECTORS`. When that repo is absent (as in CI) the test
+**skips** rather than failing the build, so `cargo test --workspace` stays green
+without a third checkout.
 
 To run the conformance battery against the signed corpus, check out
 `algovoi-rfc9421-conformance` and point `ALGOVOI_NEGATIVE_V1` at
