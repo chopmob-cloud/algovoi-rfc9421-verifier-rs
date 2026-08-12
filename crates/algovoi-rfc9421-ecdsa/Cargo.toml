@@ -23,3 +23,7 @@ serde = { workspace = true }
 serde_json = { workspace = true }
 hex = { workspace = true }
 base64 = { workspace = true }
+# RSA is not part of this add-on's runtime surface; it is used only by the
+# rfc9421_negative rsa_verify cross-language consensus test. The `sha2` feature
+# re-exports the hashes the test imports via `rsa::sha2::`.
+rsa = { version = "0.9", features = ["sha2"] }
