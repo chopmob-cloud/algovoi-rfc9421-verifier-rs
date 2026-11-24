@@ -63,7 +63,7 @@ cargo test --workspace
 ```
 
 The `shared_vectors` test reads reference vectors from the
-[algovoi-rfc9421-verifier-multilang](https://github.com/chopmob-cloud/algovoi-rfc9421-verifier-multilang)
+`algovoi-rfc9421-verifier-multilang` (private)
 repo at runtime, defaulting to a checkout alongside this one; override with
 `ALGOVOI_REFERENCE_ECDSA_VECTORS`. When that repo is absent (as in CI) the test
 **skips** rather than failing the build, so `cargo test --workspace` stays green
