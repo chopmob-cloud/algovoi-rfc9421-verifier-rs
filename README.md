@@ -1,6 +1,6 @@
 # algovoi-rfc9421-verifier-rs
 
-[![ci](https://github.com/chopmob-cloud/algovoi-rfc9421-verifier-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/chopmob-cloud/algovoi-rfc9421-verifier-rs/actions/workflows/ci.yml) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
+[![ci](https://github.com/chopmob-cloud/algovoi-rfc9421-verifier-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/chopmob-cloud/algovoi-rfc9421-verifier-rs/actions/workflows/ci.yml) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE) [![algovoi-rfc9421-conformance](https://img.shields.io/badge/algovoi--rfc9421--conformance-8A2BE2)](https://github.com/chopmob-cloud/algovoi-rfc9421-conformance)
 
 A Rust implementation of the AlgoVoi RFC 9421 (HTTP Message Signatures) plus
 RFC 9530 (Content-Digest) verifier, laid out as TWO independent crates that
